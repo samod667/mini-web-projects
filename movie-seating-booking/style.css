@@ -114,3 +114,12 @@ p.text {
 p.text span {
     color: #6feaf6;
 }
+
+.checkout {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.checkout:hover *  {
+    cursor: pointer;
+}
