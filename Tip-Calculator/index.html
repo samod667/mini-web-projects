@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Tip Calculator</title>
+</head>
+<body>
+<div class="container">
+    <form class="form" id="form">
+        <h4 id="headline">Tip Calculator</h4>
+        <div class="form-control">
+            <!--            <label for="bill" id="label">Total Bill Amount:</label>-->
+            <span>$</span><input type="text" id="bill" placeholder="Enter total bill amount">
+            <small class="error1">Error Message</small>
+        </div>
+        <div class="form-control">
+            <h4>How was your service?</h4>
+
+            <div class="radio">
+                <input type="radio" id="okay" value="10" name="service">
+                <label for="okay">Okay 10%</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="good" value="15" name="service">
+                <label for="good">Good 15%</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="excellent" value="20" name="service">
+                <label for="excellent">Excellent 20%</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="outstanding" value="25" name="service">
+                <label for="outstanding">Outstanding 25%</label>
+                <small class="error3">Error Message</small>
+            </div>
+
+        </div>
+        <div class="form-control">
+            <!--            <label for="num-of-people" id="label">Num of people to split:</label>-->
+            <input type="text" id="num-of-people" placeholder="How many people splitting the bill?">
+            <small class="error2">Error Message</small>
+        </div>
+        <div class="form-control-button">
+            <button type="button" id="submit">Calculate Tip</button>
+        </div>
+
+    </form>
+    <div class="result" id="result">
+        <!--        <h4>Total Tip: $20</h4>-->
+        <!--        <h4>Tip For Person: $10</h4>-->
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
