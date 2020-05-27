@@ -8,24 +8,32 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts = document.querySelectorAll('.figure-part')
 
-const words = ['application', 'programming', 'school', 'hobby', 'wizard']
 
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+const getRandomWord = require("random-words");
+//let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 let playable = true;
 
 const correctLetters = [];
 const wrongLetters = [];
+let word;
 
 //GENERATE A NEW WORD ON GAME END
-function generateNewWord(arr){
-    selectedWord = arr[Math.floor(Math.random() * words.length)]
+function generateNewWord() {
+    
+    // selectedWord = arr[Math.floor(Math.random() * words.length)]
+    word = getRandomWord()
+    console.log(word)
+
+    displayWord(word)
 }
 
+
 //SHOW HIDDEN WORD
-function displayWord() {
-    word.innerHTML = `
-        ${selectedWord.split('')
+function displayWord(word) {
+    
+    wordEl.innerHTML = `
+        ${word.split('')
         .map(letter => `
             <span class ="letter">${correctLetters.includes(letter) ? letter : ''}
             </span>
@@ -37,7 +45,7 @@ function displayWord() {
 
     const innerWord = wordEl.innerText.replace(/\n/g, '')
 
-    if (innerWord === selectedWord) {
+    if (innerWord === word) {
         finalMessage.innerText = 'Congratulations! You Won! :)'
         popup.style.display = 'flex';
 
@@ -66,7 +74,7 @@ function updateWrongLettersEl() {
 
     //CHECK IF LOST
     if (wrongLetters.length === figureParts.length) {
-        finalMessage.innerText = `You Lost :( The answer was: ${selectedWord} `
+        finalMessage.innerText = `You Lost :( The answer was: ${word} `
         popup.style.display = 'flex';
 
         playable = false;
@@ -91,11 +99,11 @@ window.addEventListener('keydown', e => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         const letter = e.key;
 
-        if (selectedWord.includes(letter)) {
+        if (word.includes(letter)) {
             if (!correctLetters.includes(letter)) {
                 correctLetters.push(letter);
 
-                displayWord()
+                 displayWord(word)
             } else {
                 showNotification()
             }
@@ -118,12 +126,12 @@ playAgainBtn.addEventListener('click', e => {
     wrongLetters.splice(0);
     //GENERATE NEW WORD
 
-    generateNewWord(words)
-    displayWord()
+    generateNewWord()
+
 
     updateWrongLettersEl()
 
     popup.style.display = 'none';
 })
 
-displayWord();
+generateNewWord()
