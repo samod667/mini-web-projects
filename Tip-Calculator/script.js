@@ -61,7 +61,7 @@ function formatMoney(num) {
 function displayResults(value1, value2) {
     const markup = `
         <h4>Total Tip: $${formatMoney(value1)}</h4>
-        <h4>Tip For Person: $${formatMoney(value2)}</h4>
+        <h4>Tip per Person: $${formatMoney(value2)}</h4>
     `;
     results.style.display = 'flex'
     results.innerHTML = markup;
