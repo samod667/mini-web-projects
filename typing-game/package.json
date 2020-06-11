@@ -1,0 +1,18 @@
+{
+  "name": "typing-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "random-words": "^1.1.1"
+  },
+  "dependencies": {
+    "uniq": "^1.0.1"
+  }
+}
